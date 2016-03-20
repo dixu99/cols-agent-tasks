@@ -13,7 +13,7 @@
   "version": {
     "Major": "0",
     "Minor": "0",
-    "Patch": "5"
+    "Patch": "12"
   },
   "groups": [
     {
@@ -23,7 +23,7 @@
     }
   ],
   "minimumAgentVersion": "1.91.0",
-  "instanceNameFormat": "Replace tokens in $(filePath)",
+  "instanceNameFormat": "Replace tokens in $(sourcePath)",
   "inputs": [
     {
       "name": "sourcePath",
@@ -48,6 +48,15 @@
       "defaultValue": "__(\\w+)__",
       "helpMarkDown": "Regex to use for token replacement. Must include a group match.",
       "required": true,
+      "groupName": "advanced"
+    },
+    {
+      "name": "secretTokens",
+      "type": "string",
+      "label": "Secret Tokens",
+      "defaultValue": "",
+      "helpMarkDown": "A configuration variable can be set as 'secret' in release definition to have its value hidden. For tokens need to be replaced with the value of secret configuration variables, they can be specified here using the following format: key1:$(secret1);key2:$(secret2). Non-secret configuration variable do not need to be specified explicitly here.",
+      "required": false,
       "groupName": "advanced"
     }
   ],
